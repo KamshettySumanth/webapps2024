@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Notifications {% endblock title %}
+{% block content %}
+<div class="container-fluid mt-2">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                            <h5 class="bg-secondary text-white pl-2 p-1 pt-2 pb-2 mb-2 rounded" style="font-weight:800;">Notifications</h5>
+
+{#                <div class="card-body">#}
+{##}
+{#                    <div class=" mb-3">#}
+{#                        <div class="">#}
+{#                                <a class="btn btn-secondary me-1" href="{% url 'notification' %}">All Notification</a>#}
+{#                                <a class="btn btn-secondary me-1" href="{% url 'unseen_notification' %}" hx-get="" hx-target="#actualtimeline" hx-swap="innerHtml">Unseen</a>                                #}
+{#                            </div>#}
+{#                        </div>#}
+{#                            <input type="text" id="searchInput" class="form-control" placeholder="Search...">#}
+{#                    </div>#}
+                    <div class="">
+                        <section class="py-5">
+                            <ul class="" id="actualtimeline" style="max-height:500px;overflow-y:auto;">
+                                {% for t in notifications %}
+                                <a href="{% url 'mark_as_seen' t.id %}">
+                                    <li class="timeline-item mb-5">
+                                        <h6 class="fw-bold {% if t.is_seen %}text-muted{% else %}text-success{% endif %}">{{t.message}}</h6>
+                                        <p class="text-muted mb-2 fw-bold ">{{t.created_at}}</p>
+                                    </li>
+                                </a>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{#<script>#}
+{#    document.getElementById("searchInput").addEventListener("input", function() {#}
+{#        performSearch();#}
+{#    });#}
+{#    #}
+{#    document.getElementById("searchButton").addEventListener("click", function() {#}
+{#        performSearch();#}
+{#    });#}
+{#    #}
+{#    function performSearch() {#}
+{#        // Get the search input value#}
+{#        var searchInput = document.getElementById("searchInput").value.toLowerCase();#}
+{#        #}
+{#        // Get all timeline items#}
+{#        var timelineItems = document.querySelectorAll(".timeline-item");#}
+{#        #}
+{#        // Loop through each timeline item and hide/show based on search input#}
+{#        timelineItems.forEach(function(item) {#}
+{#            var itemText = item.textContent.toLowerCase();#}
+{#            if (itemText.includes(searchInput)) {#}
+{#                item.style.display = "block";#}
+{#            } else {#}
+{#                item.style.display = "none";#}
+{#            }#}
+{#        });#}
+{#    }#}
+{#    #}
+{#</script>#}
+{% endblock content %}

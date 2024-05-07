@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container-fluid py-4">
+        <div class="row mt-4">
+            <div class="col-12 mb-4">
+                <div class="card z-index-2">
+                    <div class="card-body p-3">
+                        <h6 class="ms-2 mt-4 mb-0"> Email: {{request.user.email}} </h6>
+                        <h6 class="ms-2 mt-4 mb-0"> Username: {{request.user.username}} </h6>
+                        <h6 class="ms-2 mt-4 mb-0"> Currency: {{request.user.currency}} </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body p-5 d-flex">
+                        <div class="numbers" style="display: inline-flex">
+                            <p class="text-sm mb-0 text-capitalize font-weight-bold">Balance Amount:</p>
+                            <h5 class="font-weight-bolder mb-0 d-flex align-items-center">
+                                &nbsp;<span id="balance_value">{{request.user.userbalance.balance}} {{request.user.currency}} </span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

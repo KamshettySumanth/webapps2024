@@ -1,0 +1,46 @@
+{% load static %}
+
+<!-- JAVASCRIPT -->
+<script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/libs/metismenu/metisMenu.min.js' %}"></script>
+<script src="{% static 'assets/js/toastr.js' %}"></script>
+<script src="{% static 'assets/js/htmx.min.js' %} "></script>
+
+
+{% block extra_js %}{% endblock extra_js %}
+
+<script src="{% static 'assets/js/app.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        {% for single_form in forms %}
+        {% for field in single_form %}
+        {% if field.errors %}
+        $('#{{field.id_for_label}}').addClass('is-invalid');
+        $('#{{field.id_for_label}}').after('{{field.errors}}');
+        $('html, body').animate({
+            scrollTop: $('#{{field.id_for_label}}').offset().top
+        }, 1000);
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const currentUrl = window.location.href;
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+        sidebarLinks.forEach(function (link) {
+            if (link.href === currentUrl) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+
+
+

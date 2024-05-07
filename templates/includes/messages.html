@@ -1,0 +1,30 @@
+
+
+{% load static %}
+{% block extra_css %}
+<style>
+    .toast-header{
+        background-color: rgb(255, 255, 255) !important;
+    }
+    .toast {
+        position: fixed;
+        right:0 !important;
+        top: 20px;
+        z-index: 9999;
+        background-color: antiquewhite !important;
+        color: black !important;
+    }
+</style>
+{% endblock extra_css %}
+
+{% if messages %}
+{% for message in messages %}
+
+<div class="toast show" style="z-index:9999">
+   
+    <div class="toast-body">
+      <p>{{ message }}</p>
+    </div>
+  </div>
+{% endfor %}
+{% endif %}

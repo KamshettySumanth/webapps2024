@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Activity {% endblock title %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center" >
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                
+                <div class="card-header bg-secondary text-white">
+                    Transaction History
+                </div>
+                <div class="card-body">
+                        
+                    <!-- Filter dropdown menu -->
+                    <div class=" mb-3">
+                        
+                            <div class="d-flex">
+                                <a class="btn btn-secondary me-1" href="{% url 'payments' %}">All</a>
+                                <a class="btn btn-secondary me-1" href="{% url 'sent_payments' %}" hx-get="" hx-target="#actualtimeline">Sent</a>                                
+                                <a class="btn btn-secondary me-1" href="{% url 'received_payments' %}" hx-get="" hx-target="#actualtimeline">Received</a>
+                                <a class="btn btn-secondary me-1" href="{% url 'own_requests' %}" hx-get="" hx-target="#actualtimeline">Sent Requests</a>
+                                <a class="btn btn-secondary me-1" href="{% url 'other_requests' %}" hx-get="" hx-target="#actualtimeline">Received Requests</a>
+
+                            </div>
+                           
+                        
+                    </div>
+                    <div class="">
+                        <section class="py-5">
+
+                            <ul class="" id="actualtimeline" style="max-height:500px;overflow-y:auto;">
+                                {% for t in history %}
+                                <li class="timeline-item mb-5">
+                                    {% if t.sender %}
+                                    {% if t.sender == request.user %}
+                                    <h6 class="fw-bold">{{ t.sender.currency }}{{t.amount}} has been sent to {{t.recipient}}</h6>
+                                    {% else %}
+                                    <h6 class="fw-bold"> {{t.sender}} sent {{t.sender.currency}} {{t.amount}} payment to you</h6>
+                                    {% endif %}
+                                    {% endif %}
+                                    {% if t.requested_to %}
+                                    {% if t.requested_to == request.user %}
+                                    <h6 class="fw-bold">You requested {{t.requested_to.currency}} {{t.amount}} payment from {{t.requested_from}}</h6>
+                                    {% else %}
+                                    <h6 class="fw-bold">{{t.requested_to}} requested {{t.requested_to.currency}} {{t.amount}} payment from you</h6>
+                                    {% endif %}
+                                    {% endif %}
+                                    <p class="text-muted mb-2 fw-bold">{{t.created_at}}</p>
+                                </li>
+                                {% endfor %}
+                            </ul>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("searchInput").addEventListener("input", function() {
+        performSearch();
+    });
+    
+    document.getElementById("searchButton").addEventListener("click", function() {
+        performSearch();
+    });
+    
+    function performSearch() {
+        // Get the search input value
+        var searchInput = document.getElementById("searchInput").value.toLowerCase();
+        
+        // Get all timeline items
+        var timelineItems = document.querySelectorAll(".timeline-item");
+        
+        // Loop through each timeline item and hide/show based on search input
+        timelineItems.forEach(function(item) {
+            var itemText = item.textContent.toLowerCase();
+            if (itemText.includes(searchInput)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+    
+</script>
+{% endblock content %}

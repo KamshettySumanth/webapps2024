@@ -1,0 +1,311 @@
+{##}
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{##}
+{#<head>#}
+{#  <meta charset="utf-8" />#}
+{#  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{#  <title>#}
+{#    Pay App#}
+{#  </title>#}
+{#  <!--     Fonts and icons     -->#}
+{#  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />#}
+{#  <!-- Font Awesome Icons -->#}
+{#  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>#}
+{#  <!-- CSS Files -->#}
+{#  <link id="pagestyle" href="{% static 'assets/css/soft-ui-dashboard.css' %}?v=1.0.7" rel="stylesheet" />#}
+{##}
+{#  <style>#}
+{#    .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon {#}
+{#    background-image: none;#}
+{#}#}
+{#  </style>#}
+{##}
+{##}
+{#  {% block extra_css %}{% endblock extra_css %}#}
+{# #}
+{#</head>#}
+{##}
+{#<body class="g-sidenav-show  bg-gray-100">#}
+{#  {% include "includes/messages.html" %}#}
+{##}
+{#{% if request.user.is_authenticated %}#}
+{#  {% include 'includes/leftsidebar.html' %}#}
+{#  {% endif %}#}
+{#  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg "  >#}
+{#    <!-- Navbar -->#}
+{#    {% if request.user.is_authenticated %}#}
+{# {% include 'includes/nav.html' %}#}
+{# {% endif %}#}
+{#    <!-- End Navbar -->#}
+{#  {% block content %}#}
+{#  #}
+{#  #}
+{#  {% endblock content %}#}
+{##}
+{#  </main>#}
+{# #}
+{#  <!--   Core JS Files   -->#}
+{#  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>#}
+{#  <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>#}
+{#  <script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>#}
+{#  <script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>#}
+{##}
+{#  <script>#}
+{##}
+{##}
+{#    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);#}
+{##}
+{#    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');#}
+{#    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');#}
+{#    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors#}
+{##}
+{#    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);#}
+{##}
+{#    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');#}
+{#    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');#}
+{#    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors#}
+{##}
+{#  #}
+{#  </script>#}
+{#  <script>#}
+{#    var win = navigator.platform.indexOf('Win') > -1;#}
+{#    if (win && document.querySelector('#sidenav-scrollbar')) {#}
+{#      var options = {#}
+{#        damping: '0.5'#}
+{#      }#}
+{#      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);#}
+{#    }#}
+{#  </script>#}
+{#  <!-- Github buttons -->#}
+{#  <script async defer src="https://buttons.github.io/buttons.js"></script>#}
+{#  <script src="{% static 'assets/js/soft-ui-dashboard.min.js?v=1.0.7'%}"></script>#}
+{#  <link href="{% static 'assets/css/toastr.min.css' %}" rel="stylesheet" />#}
+{#      <script src="{% static 'assets/js/toastr.js' %}"></script>#}
+{#      <script>#}
+{#{% comment %} initialize toastr {% endcomment %}#}
+{##}
+{#      </script>#}
+{#      <script>#}
+{#        #}
+{##}
+{#// Toggle Sidenav#}
+{#const iconNavbarSidenav = document.getElementById('iconNavbarSidenav');#}
+{#const iconSidenav = document.getElementById('iconSidenav');#}
+{#const sidenav = document.getElementById('sidenav-main');#}
+{#let body = document.getElementsByTagName('body')[0];#}
+{#let className = 'g-sidenav-pinned';#}
+{##}
+{#if (iconNavbarSidenav) {#}
+{#  iconNavbarSidenav.addEventListener("click", toggleSidenav);#}
+{#}#}
+{##}
+{#if (iconSidenav) {#}
+{#  iconSidenav.addEventListener("click", toggleSidenav);#}
+{#}#}
+{##}
+{#function toggleSidenav() {#}
+{#  if (body.classList.contains(className)) {#}
+{#    body.classList.remove(className);#}
+{#    setTimeout(function() {#}
+{#      sidenav.classList.remove('bg-white');#}
+{#    }, 100);#}
+{#    sidenav.classList.remove('bg-transparent');#}
+{##}
+{#  } else {#}
+{#    body.classList.add(className);#}
+{#    sidenav.classList.add('bg-white');#}
+{#    sidenav.classList.remove('bg-transparent');#}
+{#    iconSidenav.classList.remove('d-none');#}
+{#  }#}
+{#}#}
+{#      </script>#}
+{#  {% block extra_js %}{% endblock extra_js %}#}
+{#</body>#}
+{##}
+{#</html>#}
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pay App</title>
+    <!-- Fonts and icons -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{% static 'assets/css/soft-ui-dashboard.css' %}?v=1.0.7" rel="stylesheet" />
+
+    <style>
+        /* Custom styles for the header */
+        .header {
+            background-color: #1AB7EA;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header_logo {
+            height: 40px;
+            background-color: #1AB7EA;
+        }
+
+        .header_nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center align nav items */
+            align-items: center;
+
+            overflow: hidden;
+            background-color: #1AB7EA;
+        }
+
+        .header_nav li {
+            margin-left: 70px;
+            float: left;
+        }
+
+        .header_nav a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header_nav a:hover {
+            color: #000000;
+        }
+
+        /* Hamburger icon */
+        .header_toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header_toggle {
+                display: block;
+            }
+
+            .header_nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #1AB7EA;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 15px 30px;
+            }
+
+            .header_nav.active {
+                display: block;
+            }
+
+            .header_nav ul {
+                flex-direction: column;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #fffff;
+            }
+
+            .header_nav li {
+                margin-left: 0;
+                margin-bottom: 10px;
+                float: left;
+            }
+        }
+
+    </style>
+
+
+    {% block extra_css %}{% endblock extra_css %}
+
+</head>
+<body>
+<div class="g-sidenav-show  bg-gray-100">
+{% include "includes/messages.html" %}
+
+{% if request.user.is_authenticated %}
+    <header class="header">
+        <div class="header_logo">
+            <h4 class="ms-1 font-weight-bold">Payment App</h4>
+        </div>
+        <button class="header_toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+     <div class="header_nav">
+            <ul>
+                <li><a href="{% url 'home' %}">Dashboard</a></li>
+                <li><a href="{% url 'send_request_payment' %}">Transaction</a></li>
+                <li><a href="{% url 'payments' %}">Your Transactions</a></li>
+                {% if request.user.is_superuser %}
+                    <li><a href="{% url 'payment_all' %}">All Transactions</a></li>
+                {% endif %}
+                <li><a href="{% url 'notification' %}">Notifications</a></li>
+                {% if request.user.is_superuser %}
+                    <li><a href="{% url 'admins' %}">Admin Users</a></li>
+                {% endif %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+     </div>
+    </header>
+{% endif %}
+
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <!-- Navbar -->
+    {% if request.user.is_authenticated %}
+        {% include 'includes/nav.html' %}
+    {% endif %}
+    <!-- End Navbar -->
+    {% block content %}{% endblock content %}
+</main>
+
+<!-- Core JS Files -->
+<script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
+
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        };
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
+
+<script>
+    // Toggle Navbar on smaller screens
+    const headerToggle = document.querySelector('.header_toggle');
+    const headerNav = document.querySelector('.header_nav');
+
+    headerToggle.addEventListener('click', () => {
+        headerNav.classList.toggle('active');
+    });
+</script>
+
+{% block extra_js %}{% endblock extra_js %}
+</body>
+
+</html>
+
