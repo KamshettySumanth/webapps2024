@@ -18,8 +18,7 @@
                                 <a class="btn btn-secondary me-1" href="{% url 'payment_all' %}?type=sent-received_request" hx-get="">Sent/Received Requests</a>
 
                             </div>  
-{#                            <input type="text" id="searchInput" class="form-control" placeholder="Search...">#}
-                            
+
                     </div>
                     <div>
                         <section class="py-5">
@@ -58,33 +57,4 @@
     </div>
 </div>
 
-
-{#<script>#}
-{#    document.getElementById("searchInput").addEventListener("input", function() {#}
-{#        performSearch();#}
-{#    });#}
-{#    #}
-{#    document.getElementById("searchButton").addEventListener("click", function() {#}
-{#        performSearch();#}
-{#    });#}
-{#    #}
-{#    function performSearch() {#}
-{#        // Get the search input value#}
-{#        var searchInput = document.getElementById("searchInput").value.toLowerCase();#}
-{#        #}
-{#        // Get all timeline items#}
-{#        var timelineItems = document.querySelectorAll(".timeline-item");#}
-{#        #}
-{#        // Loop through each timeline item and hide/show based on search input#}
-{#        timelineItems.forEach(function(item) {#}
-{#            var itemText = item.textContent.toLowerCase();#}
-{#            if (itemText.includes(searchInput)) {#}
-{#                item.style.display = "block";#}
-{#            } else {#}
-{#                item.style.display = "none";#}
-{#            }#}
-{#        });#}
-{#    }#}
-{#    #}
-{#</script>#}
 {% endblock content %}
